@@ -3,13 +3,27 @@ using namespace std;
 
 void stdInOutSample();
 void sizeOfSample();
+void constSample();
 
 int main()
 {
 	//stdInOutSample();
 	//sizeOfSample();
+	constSample();
 
 	return 0;
+}
+void constSample()
+{
+	const double taxRate{ 0.15 };
+	double price{ 0.0 };
+
+	cout << "Enter product price: ";
+	cin >> price;
+	cout << "=========================\n";
+	cout << "Tax rate is: " << taxRate << endl;
+	cout << "Tax is: " << price * taxRate << endl;
+	cout << "Price with tax: " << price + price * taxRate << endl;
 }
 
 void sizeOfSample()

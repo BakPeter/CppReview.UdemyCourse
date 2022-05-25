@@ -4,14 +4,105 @@ using namespace std;
 void stdInOutSample();
 void sizeOfSample();
 void constSample();
+void matrixSample();
+void arraysSample();
+void printArr(int size, int* arr);
+void matrixSample();
+int** initMatrix(int rows, int cols);
+void updateMatrixMemory(int** matrix, int rows, int cols);
+void freeMatrixMemory(int** matrix, int rows, int cols);
+void printMatrix(int** matrix, int rows, int cols);
 
 int main()
 {
 	//stdInOutSample();
 	//sizeOfSample();
-	constSample();
-
+	//constSample();
+	//arraysSample();
+	matrixSample();
 	return 0;
+}
+
+void matrixSample()
+{
+	const int rows = 10, cols = 10;
+	int** matrix = initMatrix(rows, cols);
+	printMatrix(matrix, rows, cols);
+	updateMatrixMemory(matrix, rows, cols);
+	printMatrix(matrix, rows, cols);
+	freeMatrixMemory(matrix, rows, cols);
+}
+void freeMatrixMemory(int** matrix, int rows, int cols)
+{
+	for (size_t i = 0; i < rows; i++)
+	{
+		delete[] matrix[i];
+	}
+
+	delete[] matrix;
+}
+void updateMatrixMemory(int** matrix, int rows, int cols)
+{
+	for (size_t i = 0; i < rows; i++)
+	{
+		for (size_t j = 0; j < cols; j++)
+		{
+			matrix[i][j] = pow(i + 1, j);
+		}
+	}
+
+}
+
+int** initMatrix(int rows, int cols)
+{
+	int** matrix = new int* [rows];
+	for (size_t i = 0; i < cols; i++)
+	{
+		matrix[i] = new int[cols];
+	}
+	return matrix;
+}
+void printMatrix(int** matrix, int rows, int cols)
+{
+	for (size_t i = 0; i < rows; i++)
+	{
+		for (size_t j = 0; j < cols; j++)
+		{
+			cout << matrix[i][j] << " ";
+		}
+		cout << endl;
+	}
+}
+
+void arraysSample()
+{
+	cout << "arrays sample" << endl;
+	cout << "=================" << endl;
+
+	const int arrSize = 10;
+	int arr[arrSize]{ 100,100 };
+
+	printArr(arrSize, arr);
+
+	for (int i = 0; i < arrSize; i++) {
+		{
+			arr[i] = pow(2, i);
+		}
+	}
+
+	printArr(arrSize, arr);
+}
+
+void printArr(int size, int* arr)
+{
+	cout << "===========================================\n";
+	for (size_t i = 0; i < size; i++) {
+		{
+			cout << "arr[" << i << "] = " << *(arr + i) << endl;
+		}
+	}
+	cout << "===========================================\n";
+
 }
 void constSample()
 {

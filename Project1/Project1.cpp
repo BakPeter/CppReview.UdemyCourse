@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 void stdInOutSample();
@@ -12,6 +13,7 @@ int** initMatrix(int rows, int cols);
 void updateMatrixMemory(int** matrix, int rows, int cols);
 void freeMatrixMemory(int** matrix, int rows, int cols);
 void printMatrix(int** matrix, int rows, int cols);
+void vectorSample();
 
 int main()
 {
@@ -19,8 +21,37 @@ int main()
 	//sizeOfSample();
 	//constSample();
 	//arraysSample();
-	matrixSample();
+	//matrixSample();
+	vectorSample();
 	return 0;
+}
+
+void vectorSample()
+{
+	vector<int> vec{ 1,2 ,3, 4 };
+
+	cout << "size = " << vec.size() << endl;
+	for (size_t i = 0; i < vec.size(); i++)
+	{
+		cout << vec[i] << " ";
+	}
+	cout << endl;
+	for (size_t i = 0; i < vec.size(); i++)
+	{
+		cout << vec.at(i) << " ";
+	}
+
+	for (size_t i = 0; i < vec.size(); i++)
+	{
+		vec[i] = i + 10;
+	}
+	cout << endl;
+	for (size_t i = 0; i < vec.size(); i++)
+	{
+		cout << vec.at(i) << " ";
+	}
+
+	vector<vector<char>> charsMatrix();
 }
 
 void matrixSample()
